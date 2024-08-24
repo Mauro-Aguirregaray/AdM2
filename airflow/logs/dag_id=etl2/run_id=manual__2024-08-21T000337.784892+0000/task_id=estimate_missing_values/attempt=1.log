@@ -1,0 +1,39 @@
+[2024-08-21T00:04:13.655+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl2.estimate_missing_values manual__2024-08-21T00:03:37.784892+00:00 [queued]>
+[2024-08-21T00:04:13.668+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl2.estimate_missing_values manual__2024-08-21T00:03:37.784892+00:00 [queued]>
+[2024-08-21T00:04:13.669+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-21T00:04:13.686+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): estimate_missing_values> on 2024-08-21 00:03:37.784892+00:00
+[2024-08-21T00:04:13.696+0000] {standard_task_runner.py:60} INFO - Started process 299 to run task
+[2024-08-21T00:04:13.701+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl2', 'estimate_missing_values', 'manual__2024-08-21T00:03:37.784892+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/etl_process_2.py', '--cfg-path', '/tmp/tmp9r_fmczc']
+[2024-08-21T00:04:13.704+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask estimate_missing_values
+[2024-08-21T00:04:13.777+0000] {task_command.py:423} INFO - Running <TaskInstance: etl2.estimate_missing_values manual__2024-08-21T00:03:37.784892+00:00 [running]> on host 0a5d6257f731
+[2024-08-21T00:04:13.894+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl2' AIRFLOW_CTX_TASK_ID='estimate_missing_values' AIRFLOW_CTX_EXECUTION_DATE='2024-08-21T00:03:37.784892+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-21T00:03:37.784892+00:00'
+[2024-08-21T00:04:13.971+0000] {etl_process_2.py:106} INFO - Reemplazamos garages faltantes por 0
+[2024-08-21T00:04:13.974+0000] {etl_process_2.py:109} INFO - Reemplazamos bathrooms faltantes por 1
+[2024-08-21T00:04:13.975+0000] {etl_process_2.py:113} INFO - 
+        En el caso de la variable "bedrooms," seguiremos el siguiente enfoque:
+
+        - Completaremos con 0 aquellos listados donde la variable "rooms" sea igual a 1 (Monoambientes).
+        - Para aquellos casos que tengan los valores de "rooms" y "bathrooms" completos, realizaremos la resta entre estas variables para obtener una estimación más aproximada.
+        - Para el resto de los casos, dejaremos el valor en 0.
+    
+[2024-08-21T00:04:13.980+0000] {etl_process_2.py:125} INFO - 
+        Para los registros en los que el valor de metros cubiertos sea mayor que el de metros totales, 
+        intercambiaremos los valores de estas columnas para corregir el error.
+    
+[2024-08-21T00:04:13.988+0000] {etl_process_2.py:134} INFO - 
+        Para los registros que no tengan metros cubiertos, lo completamos con la cantidad de metros totales para tener un valor aproximado
+    
+[2024-08-21T00:04:13.989+0000] {etl_process_2.py:140} INFO - 
+        En el caso de la variable "building_layout," reemplazaremos los valores faltantes con la moda del conjunto de datos.
+    
+[2024-08-21T00:04:13.992+0000] {etl_process_2.py:146} INFO - 
+        Existen registros que están en moneda ARS ($). Estos los transformaremos a USD utilizando 
+        el tipo de cambio (TC) a la fecha de las publicaciones (todos los registros se tomaron el mismo día 
+        y se asume que las expensas están actualizadas a dicha fecha) para así unificar los análisis.
+    
+[2024-08-21T00:04:15.398+0000] {etl_process_2.py:161} INFO - Datos guardados en XCOM con key: estimate_missing_values
+[2024-08-21T00:04:15.399+0000] {etl_process_2.py:162} INFO - Datos guardados en csv: transformed_data
+[2024-08-21T00:04:15.400+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-21T00:04:15.417+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl2, task_id=estimate_missing_values, execution_date=20240821T000337, start_date=20240821T000413, end_date=20240821T000415
+[2024-08-21T00:04:15.480+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-21T00:04:15.520+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,25 @@
+[2024-08-21T00:04:28.778+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl2.scale_data manual__2024-08-21T00:03:37.784892+00:00 [queued]>
+[2024-08-21T00:04:28.796+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl2.scale_data manual__2024-08-21T00:03:37.784892+00:00 [queued]>
+[2024-08-21T00:04:28.797+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-21T00:04:28.819+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): scale_data> on 2024-08-21 00:03:37.784892+00:00
+[2024-08-21T00:04:28.828+0000] {standard_task_runner.py:60} INFO - Started process 337 to run task
+[2024-08-21T00:04:28.835+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl2', 'scale_data', 'manual__2024-08-21T00:03:37.784892+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/etl_process_2.py', '--cfg-path', '/tmp/tmpaq07x29c']
+[2024-08-21T00:04:28.839+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask scale_data
+[2024-08-21T00:04:28.947+0000] {task_command.py:423} INFO - Running <TaskInstance: etl2.scale_data manual__2024-08-21T00:03:37.784892+00:00 [running]> on host 0a5d6257f731
+[2024-08-21T00:04:29.074+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl2' AIRFLOW_CTX_TASK_ID='scale_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-21T00:03:37.784892+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-21T00:03:37.784892+00:00'
+[2024-08-21T00:04:29.076+0000] {etl_process_2.py:299} INFO - Leyendo Datos
+[2024-08-21T00:04:29.101+0000] {etl_process_2.py:306} INFO - Datos Leidos
+[2024-08-21T00:04:29.134+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2024-08-21T00:04:29.446+0000] {configprovider.py:958} INFO - Found endpoint for s3 via: environment_service.
+[2024-08-21T00:04:29.484+0000] {etl_process_2.py:341} INFO - X_train_scaled guardado en PostgreSQL en la tabla: X_train_scaled
+[2024-08-21T00:04:29.485+0000] {etl_process_2.py:342} INFO - X_train_scaled en XCOM con key: X_train_scaled
+[2024-08-21T00:04:30.299+0000] {etl_process_2.py:346} INFO - X_test_scaled guardado en PostgreSQL en la tabla: X_test_scaled
+[2024-08-21T00:04:30.300+0000] {etl_process_2.py:347} INFO - X_test_scaled en XCOM con key: X_test_scaled
+[2024-08-21T00:04:30.519+0000] {etl_process_2.py:351} INFO - y_train_scaled guardado en PostgreSQL en la tabla: y_train_scaled
+[2024-08-21T00:04:30.519+0000] {etl_process_2.py:352} INFO - y_train_scaled en XCOM con key: y_train_scaled
+[2024-08-21T00:04:30.665+0000] {etl_process_2.py:356} INFO - y_test_scaled guardado en PostgreSQL en la tabla: y_test_scaled
+[2024-08-21T00:04:30.665+0000] {etl_process_2.py:357} INFO - y_test_scaled en XCOM con key: y_test_scaled
+[2024-08-21T00:04:30.860+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-21T00:04:30.877+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl2, task_id=scale_data, execution_date=20240821T000337, start_date=20240821T000428, end_date=20240821T000430
+[2024-08-21T00:04:30.933+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-21T00:04:30.967+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

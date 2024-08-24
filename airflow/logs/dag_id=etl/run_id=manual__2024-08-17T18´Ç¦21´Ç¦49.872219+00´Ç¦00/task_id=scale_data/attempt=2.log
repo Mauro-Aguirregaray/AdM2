@@ -1,0 +1,32 @@
+[2024-08-17T18:37:12.686+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl.scale_data manual__2024-08-17T18:21:49.872219+00:00 [queued]>
+[2024-08-17T18:37:12.692+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl.scale_data manual__2024-08-17T18:21:49.872219+00:00 [queued]>
+[2024-08-17T18:37:12.692+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2024-08-17T18:37:12.701+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): scale_data> on 2024-08-17 18:21:49.872219+00:00
+[2024-08-17T18:37:12.708+0000] {standard_task_runner.py:60} INFO - Started process 2982 to run task
+[2024-08-17T18:37:12.710+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl', 'scale_data', 'manual__2024-08-17T18:21:49.872219+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/etl_process.py', '--cfg-path', '/tmp/tmpmewjuahw']
+[2024-08-17T18:37:12.712+0000] {standard_task_runner.py:88} INFO - Job 79: Subtask scale_data
+[2024-08-17T18:37:12.744+0000] {task_command.py:423} INFO - Running <TaskInstance: etl.scale_data manual__2024-08-17T18:21:49.872219+00:00 [running]> on host 5a9976bc6527
+[2024-08-17T18:37:12.797+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl' AIRFLOW_CTX_TASK_ID='scale_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-17T18:21:49.872219+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-17T18:21:49.872219+00:00'
+[2024-08-17T18:37:12.875+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_process.py", line 294, in scale_data
+    y_train = pd.DataFrame(y_train)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+[2024-08-17T18:37:12.884+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=etl, task_id=scale_data, execution_date=20240817T182149, start_date=20240817T183712, end_date=20240817T183712
+[2024-08-17T18:37:12.891+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 79 for task scale_data (If using all scalar values, you must pass an index; 2982)
+[2024-08-17T18:37:12.923+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-08-17T18:37:12.934+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

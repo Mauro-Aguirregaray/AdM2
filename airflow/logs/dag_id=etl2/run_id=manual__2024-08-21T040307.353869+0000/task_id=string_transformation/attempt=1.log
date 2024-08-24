@@ -1,0 +1,21 @@
+[2024-08-21T04:04:05.646+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl2.string_transformation manual__2024-08-21T04:03:07.353869+00:00 [queued]>
+[2024-08-21T04:04:05.670+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl2.string_transformation manual__2024-08-21T04:03:07.353869+00:00 [queued]>
+[2024-08-21T04:04:05.671+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-21T04:04:05.704+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): string_transformation> on 2024-08-21 04:03:07.353869+00:00
+[2024-08-21T04:04:05.718+0000] {standard_task_runner.py:60} INFO - Started process 453 to run task
+[2024-08-21T04:04:05.730+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl2', 'string_transformation', 'manual__2024-08-21T04:03:07.353869+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_process_2.py', '--cfg-path', '/tmp/tmpgd9q9lmz']
+[2024-08-21T04:04:05.735+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask string_transformation
+[2024-08-21T04:04:05.857+0000] {task_command.py:423} INFO - Running <TaskInstance: etl2.string_transformation manual__2024-08-21T04:03:07.353869+00:00 [running]> on host 3578cb081144
+[2024-08-21T04:04:05.998+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl2' AIRFLOW_CTX_TASK_ID='string_transformation' AIRFLOW_CTX_EXECUTION_DATE='2024-08-21T04:03:07.353869+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-21T04:03:07.353869+00:00'
+[2024-08-21T04:04:06.098+0000] {etl_process_2.py:167} INFO - 
+        La columna "antique" no solo contiene registros de antigüedad en años, sino también valores como 
+        "A estrenar" o "En construcción." Para estos últimos dos casos, crearemos variables dummy y 
+        reemplazaremos sus valores por 0. Además, para aquellos registros con antigüedades mayores a 1000 años, 
+        realizaremos la resta entre 2024 y el valor de la antigüedad para obtener un valor real.
+    
+[2024-08-21T04:04:07.693+0000] {etl_process_2.py:196} INFO - Datos guardados en XCOM con key: string_transformation
+[2024-08-21T04:04:07.694+0000] {etl_process_2.py:197} INFO - Datos guardados en csv: transformed_data
+[2024-08-21T04:04:07.696+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-21T04:04:07.713+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl2, task_id=string_transformation, execution_date=20240821T040307, start_date=20240821T040405, end_date=20240821T040407
+[2024-08-21T04:04:07.785+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-21T04:04:07.826+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

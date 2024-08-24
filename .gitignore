@@ -1,0 +1,24 @@
+# Ignorar archivos temporales de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de entorno virtual
+venv/
+.env/
+
+# Ignorar archivos de compilación de Python
+__pycache__/
+*.py[cod]
+
+# Ignorar archivos de configuraciones locales
+.vscode/
+.idea/
+
+# Ignorar archivos de salida de Jupyter notebooks
+*.ipynb_checkpoints
+
+# Ignorar datos sensibles
+config.json
+
+# Ignorar todo lo de estudio de la materia
+AprendizajeMaquinaII/*

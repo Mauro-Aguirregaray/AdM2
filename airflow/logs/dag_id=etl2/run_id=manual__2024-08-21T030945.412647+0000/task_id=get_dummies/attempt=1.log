@@ -1,0 +1,20 @@
+[2024-08-21T03:10:23.561+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl2.get_dummies manual__2024-08-21T03:09:45.412647+00:00 [queued]>
+[2024-08-21T03:10:23.576+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl2.get_dummies manual__2024-08-21T03:09:45.412647+00:00 [queued]>
+[2024-08-21T03:10:23.577+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-21T03:10:23.600+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): get_dummies> on 2024-08-21 03:09:45.412647+00:00
+[2024-08-21T03:10:23.610+0000] {standard_task_runner.py:60} INFO - Started process 406 to run task
+[2024-08-21T03:10:23.616+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl2', 'get_dummies', 'manual__2024-08-21T03:09:45.412647+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_process_2.py', '--cfg-path', '/tmp/tmp1p6n870t']
+[2024-08-21T03:10:23.619+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask get_dummies
+[2024-08-21T03:10:23.731+0000] {task_command.py:423} INFO - Running <TaskInstance: etl2.get_dummies manual__2024-08-21T03:09:45.412647+00:00 [running]> on host 19a5532a9904
+[2024-08-21T03:10:23.956+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl2' AIRFLOW_CTX_TASK_ID='get_dummies' AIRFLOW_CTX_EXECUTION_DATE='2024-08-21T03:09:45.412647+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-21T03:09:45.412647+00:00'
+[2024-08-21T03:10:24.038+0000] {etl_process_2.py:202} INFO - 
+        Para "city" (barrios) y "building_layout," generaremos variables dummy. 
+    
+[2024-08-21T03:10:24.104+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2024-08-21T03:10:24.449+0000] {configprovider.py:958} INFO - Found endpoint for s3 via: environment_service.
+[2024-08-21T03:10:27.657+0000] {etl_process_2.py:234} INFO - Datos guardados en XCOM con key: get_dummies
+[2024-08-21T03:10:27.658+0000] {etl_process_2.py:235} INFO - Datos guardados en csv: transformed_data
+[2024-08-21T03:10:27.662+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-21T03:10:27.689+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl2, task_id=get_dummies, execution_date=20240821T030945, start_date=20240821T031023, end_date=20240821T031027
+[2024-08-21T03:10:27.765+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-21T03:10:27.806+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

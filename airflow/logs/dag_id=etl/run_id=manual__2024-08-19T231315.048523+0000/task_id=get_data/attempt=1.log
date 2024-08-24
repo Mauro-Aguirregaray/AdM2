@@ -1,0 +1,16 @@
+[2024-08-19T23:13:19.177+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl.get_data manual__2024-08-19T23:13:15.048523+00:00 [queued]>
+[2024-08-19T23:13:19.191+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl.get_data manual__2024-08-19T23:13:15.048523+00:00 [queued]>
+[2024-08-19T23:13:19.193+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-19T23:13:19.233+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): get_data> on 2024-08-19 23:13:15.048523+00:00
+[2024-08-19T23:13:19.240+0000] {standard_task_runner.py:60} INFO - Started process 404 to run task
+[2024-08-19T23:13:19.244+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl', 'get_data', 'manual__2024-08-19T23:13:15.048523+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etl_process.py', '--cfg-path', '/tmp/tmpv_dxhdx8']
+[2024-08-19T23:13:19.247+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask get_data
+[2024-08-19T23:13:19.327+0000] {task_command.py:423} INFO - Running <TaskInstance: etl.get_data manual__2024-08-19T23:13:15.048523+00:00 [running]> on host 8e46c7533daf
+[2024-08-19T23:13:19.465+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-19T23:13:15.048523+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-19T23:13:15.048523+00:00'
+[2024-08-19T23:13:38.897+0000] {etl_process.py:71} INFO - Datos guardados en PostgreSQL en la tabla: data
+[2024-08-19T23:13:38.904+0000] {etl_process.py:72} INFO - Datos guardados en csv en la tabla: data
+[2024-08-19T23:13:38.904+0000] {etl_process.py:73} INFO - Datos guardados en XCOM con key: data
+[2024-08-19T23:13:38.915+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-19T23:13:38.944+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl, task_id=get_data, execution_date=20240819T231315, start_date=20240819T231319, end_date=20240819T231338
+[2024-08-19T23:13:39.054+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-19T23:13:39.121+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

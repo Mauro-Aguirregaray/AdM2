@@ -1,0 +1,19 @@
+[2024-08-23T03:02:03.780+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl.drop_columns_and_values manual__2024-08-23T03:01:12.261728+00:00 [queued]>
+[2024-08-23T03:02:03.797+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl.drop_columns_and_values manual__2024-08-23T03:01:12.261728+00:00 [queued]>
+[2024-08-23T03:02:03.798+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2024-08-23T03:02:03.842+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): drop_columns_and_values> on 2024-08-23 03:01:12.261728+00:00
+[2024-08-23T03:02:03.851+0000] {standard_task_runner.py:60} INFO - Started process 294 to run task
+[2024-08-23T03:02:03.856+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl', 'drop_columns_and_values', 'manual__2024-08-23T03:01:12.261728+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etl_process.py', '--cfg-path', '/tmp/tmpkk5kycy2']
+[2024-08-23T03:02:03.860+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask drop_columns_and_values
+[2024-08-23T03:02:03.962+0000] {task_command.py:423} INFO - Running <TaskInstance: etl.drop_columns_and_values manual__2024-08-23T03:01:12.261728+00:00 [running]> on host 9b144a13aacf
+[2024-08-23T03:02:04.137+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl' AIRFLOW_CTX_TASK_ID='drop_columns_and_values' AIRFLOW_CTX_EXECUTION_DATE='2024-08-23T03:01:12.261728+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-23T03:01:12.261728+00:00'
+[2024-08-23T03:02:07.091+0000] {etl_process.py:78} INFO - Eliminación por imposibilidad de estimar datos faltantes: 'number_of_floors','apartments_per_floor'
+[2024-08-23T03:02:07.112+0000] {etl_process.py:85} INFO - Eliminacion por no aportar al análisis: 'url','publisher_id','city_id','state_id','country_id','publisher_name','name','address'
+[2024-08-23T03:02:07.128+0000] {etl_process.py:92} INFO - Nos quedamos unicamente con: 'Apartamento','PH','Casa' 
+[2024-08-23T03:02:07.148+0000] {etl_process.py:95} INFO - Eliminacion de valores de operation_amount (target) en 0
+[2024-08-23T03:02:08.851+0000] {etl_process.py:100} INFO - Datos guardados en XCOM con key: drop_columns_and_values
+[2024-08-23T03:02:08.852+0000] {etl_process.py:101} INFO - Datos guardados en csv: transformed_data
+[2024-08-23T03:02:08.854+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-08-23T03:02:08.878+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl, task_id=drop_columns_and_values, execution_date=20240823T030112, start_date=20240823T030203, end_date=20240823T030208
+[2024-08-23T03:02:08.925+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-08-23T03:02:08.971+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
