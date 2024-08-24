@@ -10,7 +10,7 @@
 
 ### ¿Quiénes somos?
 
-PreciosProAI es una innovadora startup fundada por un grupo de cinco estudiantes del posgrado en CEIA que están cursando la materia Aprendizaje de Máquinas II: Fabricio Denardi, Mauro Aguirregaray, Alan Perez, Sofia Speri y Cristian Davinco. Motivados por la pregunta de si, a partir de una lista pequeña de entradas, se podría predecir el precio de una vivienda, este equipo se propuso crear una solución que ayude a personas inexpertas en el mercado inmobiliario.
+PreciosProAI es una innovadora startup fundada por un grupo de cinco estudiantes del posgrado en CEIA que están cursando la materia Aprendizaje de Máquinas II: Fabricio Denardi, Mauro Aguirregaray, Alan Perez, Sofia Speri y Cristian Davico. Motivados por la pregunta de si, a partir de una lista pequeña de entradas, se podría predecir el precio de una vivienda, este equipo se propuso crear una solución que ayude a personas inexpertas en el mercado inmobiliario.
 
 <div style="text-align: center;">
     <img src="EquipoTrabajo.jpg" alt="Equipo Trabajo" width="400"/>
@@ -80,18 +80,18 @@ Vamos a trabajar con el dataset `./data/train_data.xlsx`, que toma valores de la
 
 5. **Accede a los servicios disponibles:**
    - Apache Airflow: [http://localhost:8080](http://localhost:8080)(Usuario: airflow, Password: airflow)
-   - MLflow: [http://localhost:5000](http://localhost:5000)
+   - MLflow: [http://localhost:5005](http://localhost:5005)
    - MinIO (administración de buckets): [http://localhost:9001](http://localhost:9001)(Usuario: minio, Password: minio123)
    - Streamlit: [http://localhost:8501/](http://localhost:8501/)
 
-6. **Ejecución de ETL en Airflow:**
+6. **(Opcional) Ejecución de ETL en Airflow:**
    - En Apache Airflow, ejecuta el ETL haciendo clic en el botón de "play". Espera unos minutos hasta que se complete.
 
-7. **Visualiza los archivos en MinIO:**
+7. **(Opcional) Visualiza los archivos en MinIO:**
    - Ahora podrás visualizar en MinIO el bucket con los archivos que se utilizarán en el entrenamiento del modelo.
 
 8. **Entrenamiento del modelo:**
-   - Ejecuta el notebook dentro de la carpeta `./notebooks` para realizar el entrenamiento del modelo.
+   - Ejecuta el notebook entero dentro de la carpeta `./notebooks` para realizar el entrenamiento del modelo. Si no realizaste los puntos 6 y 7, desde el notebook podes ejecutar el ETL en airflow (primera celda de código).
 
 9. **Visualización de resultados:**
    - Podrás visualizar en MLflow el modelo entrenado, junto con sus métricas más importantes, así como en MinIO.

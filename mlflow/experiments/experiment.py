@@ -21,7 +21,7 @@ os.environ["MLFLOW_S3_ENDPOINT_URL"] = 'http://localhost:9000'
 os.environ["AWS_ENDPOINT_URL_S3"] = 'http://localhost:9001'
 
 
-mlflow.set_tracking_uri('http://localhost:5000')
+mlflow.set_tracking_uri('http://localhost:5005')
 
 experiment_name = "default_model_experiment"
 

@@ -25,7 +25,7 @@ def load_model(model_name: str, alias: str):
 
     try:
         # Load the trained model from MLflow
-        mlflow.set_tracking_uri('http://mlflow:5000')
+        mlflow.set_tracking_uri('http://mlflow:5005')
         client_mlflow = mlflow.MlflowClient()
 
         model_data_mlflow = client_mlflow.get_model_version_by_alias(model_name, alias)
