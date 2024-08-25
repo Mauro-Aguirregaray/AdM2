@@ -105,6 +105,44 @@ Si has seguido todos los pasos, ya estás utilizando el poder de la inteligencia
 
 ¡Bienvenido al futuro de la valuación inmobiliaria con el poder de la IA en tus manos!
 
+## Posibles problemas
+
+### 1. Error al ejecutar Create Bucket
+Si al intentar crear un bucket recibes el siguiente error:
+
+```bash
+minio_create_bucket  | /bin/sh: /etc/create_buckets.sh: /bin/sh: bad interpreter: Permission denied
+```
+
+#### Solución
+Ejecuta el siguiente comando en una terminal para dar permisos de ejecución al script:
+
+```bash
+chmod +x create_buckets.sh
+```
+
+Este comando debe ser ejecutado en la carpeta `minio`.
+
+---
+
+### 2. Error al copiar Excel con datos
+Si al intentar copiar un archivo Excel a un bucket obtienes el siguiente error:
+
+```bash
+minio_upload_file    | mc: <ERROR> Failed to copy /data/train_data.xlsx. Bucket data does not exist.
+```
+
+#### Solución
+En la definición del volumen para el servicio `upload_file_to_s3` en el archivo `docker-compose.yml`, asegúrate de establecer la ruta absoluta del archivo Excel. Este error es más común en usuarios de Mac, donde Docker podría no encontrar la ruta o solicitar la adición de variables de entorno específicas.
+
+Ejemplo:
+
+```bash
+- /Users/tu_usuario/Documents/CEIA/AMq2/TPs/AdM2-main/data/train_data.xlsx:/data/train_data.xlsx
+```
+
+Asegúrate de reemplazar `/Users/tu_usuario/` con la ruta correspondiente en tu sistema.
+
 # Conclusiones
 
 Más allá de que no nos hacemos responsables de las inversiones que puedan hacer los usuarios y que la empresa PreciosPro AI roza lo ilegal, creemos que este trabajo estuvo muy bueno. Poder poner en "producción" un modelo es una tarea que normalemente se deja de lado en cursos de Machine Learning y tener que levantar todos los servicios necesarios, conocerlos, luchar con ellos, creemos que es algo que nos puede ayudar mucho y diferenciar en el mercado laboral.
