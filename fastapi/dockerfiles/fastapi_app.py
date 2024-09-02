@@ -23,6 +23,9 @@ def load_model(model_name: str, alias: str):
     :return: A tuple containing the loaded model, its version, and the data dictionary.
     """
 
+    model_ml = None
+    version_model_ml = None
+
     try:
         # Load the trained model from MLflow
         mlflow.set_tracking_uri('http://mlflow:5005')
@@ -32,7 +35,7 @@ def load_model(model_name: str, alias: str):
         model_ml = mlflow.sklearn.load_model(model_data_mlflow.source)
         version_model_ml = int(model_data_mlflow.version)
         print(f'Modelo cargado exitosamente: Versión {version_model_ml}')
-    except MlflowException as e:
+    except mlflow.exceptions.MlflowException as e:
         print(f'Error al conectar a MLflow: {e}')
     except Exception as e:
         print(f'Error al cargar el modelo: {e}')
@@ -81,7 +84,6 @@ class ModelInput(BaseModel):
 # Load the model before start
 model, version_model, data_dict = load_model("precio_propiedades_model_prod", "prod")
 
-
 app = FastAPI()
 
 
@@ -92,12 +94,21 @@ async def read_root():
 
     This endpoint returns a JSON response with a welcome message to indicate that the API is running.
     """
-    return JSONResponse(content=jsonable_encoder({"message": "Bienvenidos a la API para predecir el precio de las propiedades de CABA"}))
+    return JSONResponse(content=jsonable_encoder(
+        {"message": "Bienvenidos a la API para predecir el precio de las propiedades de CABA"}))
 
 
 # Definir la ruta para predicciones
 @app.post("/predict/")
 async def predict(input_data: ModelInput):
+    global model, version_model, data_dict
+
+    if not model:
+        model, version_model, data_dict = load_model("precio_propiedades_model_prod", "prod")
+
+        if not model:
+            return {"prediction": 0.0}
+
     # Convertir los datos de entrada a un DataFrame de pandas
     df = pd.DataFrame([input_data.dict()])
 
@@ -112,4 +123,4 @@ async def predict(input_data: ModelInput):
     unstandarize_prediction = float(scaler_y.inverse_transform(prediction.reshape(-1, 1))[0][0])
 
     # Retornar el resultado como JSON
-    return {"prediction": round(unstandarize_prediction,2)}
+    return {"prediction": round(unstandarize_prediction, 2)}
